@@ -7,12 +7,17 @@ import java.util.*;
 
 
 public class DatabaseManager {
-    static final Dotenv dotenv = Dotenv.load();
-    private static final String URL = dotenv.get("db_url");
-    private static final String USER = dotenv.get("db_username");
-    private static final String PASSWORD = dotenv.get("db_psswd");
+    private static final String dbName = System.getenv("DB_NAME");
+    private static final String port = System.getenv("DB_PORT") ;
+    private static final String host = System.getenv("DB_HOST");
+    private static final String URL = "jdbc:mysql://" + host + ":" + port + "/" + dbName;
+    private static final String USER = System.getenv("DB_USER");
+    private static final String PASSWORD = System.getenv("DB_PASSWORD");
+
 
     public static Connection getConnection() throws SQLException {
+
+
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 

@@ -3,11 +3,19 @@ package org.Library;
 import java.util.List;
 
 public class User {
-  private   String id, name,email,password;
+  private   String id, name,email,password,role;
    private List<Book> borrowedBooks;
 
     public User() {
 
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public User(String id, String name, String email, String password) {

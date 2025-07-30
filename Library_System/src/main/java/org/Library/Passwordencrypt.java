@@ -19,4 +19,8 @@ public class Passwordencrypt {
             throw new RuntimeException("SHA-256 algorithm not found.");
         }
     }
+    public static boolean verifyPassword(String password, String hashedPassword) {
+        String hashedInput = hashPassword(password);
+        return hashedInput.equals(hashedPassword);
+    }
 }
